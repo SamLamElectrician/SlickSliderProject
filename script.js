@@ -1,40 +1,34 @@
-$(document).ready(function () {
-	$('.rooms').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
+let app = {};
 
-		arrows: false,
-		pauseOnHover: false,
+app.buttonModules = () => {
+	const viewButton = document.getElementById('viewButton');
+	const changeRoom = document.getElementById('changeRoom');
+	const mainModule = document.getElementById('mainModule');
+	const exitModule = document.getElementById('exitModule');
+	const slideshow = document.getElementById('slideshowContainer');
+	const mainImg = document.getElementById('mainImg');
+	const doneButton = document.getElementById('complete');
 
-		responsive: [
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 4,
-				},
-			},
-			{
-				breakpoint: 520,
-				settings: {
-					slidesToShow: 3,
-				},
-			},
-		],
+	//toggles slideshow
+	viewButton.addEventListener('click', () => {
+		mainModule.classList.toggle('hidden');
+		exitModule.classList.toggle('visible');
+		slideshow.classList.toggle('visible');
+		mainImg.classList.toggle('hidden');
 	});
-});
+	//toggle main image again
+	doneButton.addEventListener('click', () => {
+		mainModule.classList.toggle('hidden');
+		exitModule.classList.toggle('visible');
+		slideshow.classList.toggle('visible');
+		mainImg.classList.toggle('hidden');
+	});
+};
 
-$('.add-remove').slick({
-	slidesToShow: 3,
-	slidesToScroll: 3,
-});
-$('.js-add-slide').on('click', function () {
-	slideIndex++;
-	$('.add-remove').slick('slickAdd', '<div><h3>' + slideIndex + '</h3></div>');
-});
+app.init = () => {
+	app.buttonModules();
+	app.slider();
+	// app.slideshow();
+};
 
-$('.js-remove-slide').on('click', function () {
-	$('.add-remove').slick('slickRemove', slideIndex - 1);
-	if (slideIndex !== 0) {
-		slideIndex--;
-	}
-});
+app.init();

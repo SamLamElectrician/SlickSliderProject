@@ -5,60 +5,80 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
-		<script
-			src="https://code.jquery.com/jquery-2.2.0.min.js"
-			type="text/javascript"
-		></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
 		<title>Document</title>
 	</head>
 	<body>
-		<section class="roomSlideshow">
-			<div class="rooms slider">
-				<div class="slide">
-					<img
-						src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80"
-					/>
-					<p>Bedroom</p>
+		<section class="slideshow">
+			<div class="buttonModule">
+				<div class="mainModule" id="mainModule">
+					<button>Exit</button>
+					<button id="changeRoom">Change Room</button>
+					<button id="viewButton">Views</button>
+					<button>Share</button>
 				</div>
-				<div class="slide">
-					<img
-						src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-					/>
-				</div>
-				<div class="slide">
-					<img
-						src="https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-					/>
-				</div>
-				<div class="slide">
-					<img
-						src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-					/>
-				</div>
-				<div class="slide">
-					<img
-						src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80"
-					/>
+				<div class="exitButton" id="exitModule">
+					<button id="complete">Done</button>
 				</div>
 			</div>
-
-			<!-- <div class="buttonsMenu">
-				<button class="viewer">Viewer</button>
-				<div class="onClickViewer">
-					<button class="exit">Exit</button>
-					<button class="viewer">Views</button>
-					<button class="changeRoom">Change Room</button>
-					<button class="share">share</button>
+			<div class="mainImg" id="mainImg">
+				<img
+					src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80"
+					alt=""
+				/>
+			</div>
+			<div class="slider" id="slideshowContainer">
+				<div class="innerSlider" id="innerSlider">
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=958&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+							alt=""
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
+					<div class="slide">
+						<img
+							src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+							alt=""
+							draggable="false"
+						/>
+					</div>
 				</div>
-			</div> -->
+			</div>
 		</section>
-
 		<script src="script.js"></script>
 	</body>
 </html>
