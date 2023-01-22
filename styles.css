@@ -155,4 +155,18 @@ i {
 	.slider {
 		overflow-x: scroll;
 	}
+	.slide img {
+		height: 50vh;
+	}
+	.infoCard {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.infoButtons {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
 }
