@@ -67,8 +67,10 @@ app.buttonModules = () => {
 
 //function to duplicate a slide and add another one on to it
 app.duplicateSlide = () => {
+	//look for duplicate button
 	const duplicate = document.querySelectorAll('.duplicate');
 	const slideshow = document.querySelector('.innerSlider');
+	//adds event listener on all buttons and finds the information about it to remake a slide
 	duplicate.forEach((double) => {
 		double.addEventListener('click', (e) => {
 			const imageSRC =
@@ -105,17 +107,19 @@ app.duplicateSlide = () => {
 };
 
 //works but you have to refresh page, still working on this
+//For some reason, it works on live server but not jsfiddle
 app.addFile = async () => {
+	//find the slideshow
 	const slideshow = document.querySelector('.innerSlider');
+	//find the  file uploaded
 	const input = document.getElementById('file');
 	const file = input.files[0];
 	if (!file) {
-		alert('Please Upload a File');
 		console.error('No file was selected');
 		return;
 	}
 
-	//creating a URL object for the file
+	//creating a URL object for the file, promise to handle error
 	const ImgSrc = await new Promise((resolve, reject) => {
 		const reader = new FileReader();
 		reader.onloadend = () => resolve(reader.result);
@@ -123,7 +127,9 @@ app.addFile = async () => {
 		reader.readAsDataURL(file);
 	});
 
+	//file name
 	const alt = file.name;
+	//add info to slide and upload
 	const newSlide = document.createElement('div');
 	newSlide.className = 'slide';
 	newSlide.innerHTML = `
