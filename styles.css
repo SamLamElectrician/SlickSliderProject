@@ -150,3 +150,9 @@ i {
 	font-size: 1.3rem;
 	vertical-align: middle;
 }
+
+@media screen and (max-width: 1024px) {
+	.innerSlider {
+		overflow-x: scroll;
+	}
+}
