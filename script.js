@@ -92,9 +92,9 @@ app.duplicateSlide = () => {
 								<p>${paragraph}</p>
 							</div>
 							<div class="infoButtons">
-								<button>Share</button>
-								<button>Favorite</button>
-								<button class="duplicate">Duplicate</button>
+								<button><i class="ph-share-network"></i>Share</button>
+								<button><i class="ph-heart"></i>Favorite</button>
+								<button class="duplicate"><i class="ph-copy"></i>Duplicate</button>
 							</div>
 						</div>
 					`;
@@ -104,11 +104,53 @@ app.duplicateSlide = () => {
 	});
 };
 
+//works but you have to refresh page, still working on this
+app.addFile = async () => {
+	const slideshow = document.querySelector('.innerSlider');
+	const input = document.getElementById('file');
+	const file = input.files[0];
+	if (!file) {
+		alert('Please Upload a File');
+		console.error('No file was selected');
+		return;
+	}
+
+	//creating a URL object for the file
+	const ImgSrc = await new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.onloadend = () => resolve(reader.result);
+		reader.onerror = reject;
+		reader.readAsDataURL(file);
+	});
+
+	const alt = file.name;
+	const newSlide = document.createElement('div');
+	newSlide.className = 'slide';
+	newSlide.innerHTML = `
+						<img
+							src="${ImgSrc}"
+							alt="${alt}"
+							draggable="false"
+						/>
+						<div class="infoCard">
+							<div class="info">
+								<h1>${alt}</h1>
+								
+							</div>
+							<div class="infoButtons">
+								<button><i class="ph-share-network"></i>Share</button>
+								<button><i class="ph-heart"></i>Favorite</button>
+								<button class="duplicate"><i class="ph-copy"></i>Duplicate</button>
+							</div>
+						</div>
+					`;
+	slideshow.appendChild(newSlide);
+};
+
 app.init = () => {
 	app.buttonModules();
 	app.duplicateSlide();
-
-	// app.slideshow();
+	app.addFile();
 };
 
 app.init();

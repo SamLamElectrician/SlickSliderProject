@@ -10,7 +10,7 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow-y: hidden;
-	/* background-color: #4b4b50; */
+	font-family: 'Poppins', sans-serif;
 }
 
 .grey {
@@ -133,6 +133,8 @@ button {
 	padding: 12px;
 	font-size: 0.8rem;
 	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	vertical-align: middle;
 }
 
 button:active,
@@ -143,4 +145,8 @@ button:hover {
 
 h1 {
 	text-transform: uppercase;
+}
+i {
+	font-size: 1.3rem;
+	vertical-align: middle;
 }
